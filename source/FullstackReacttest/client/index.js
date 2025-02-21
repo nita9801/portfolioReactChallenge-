@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const { Pool } = require("pg");
 
 const app = express();
 app.use(cors());
@@ -10,4 +11,16 @@ app.get("/", (req, res) => {
 });
 
 app.listen(5000, () => console.log("Server started on port 5000"));
-git
+
+
+const pool = new Pool({
+    user: "yourusername",
+    host: "localhost",
+    database: "mydatabase",
+    password: "yourpassword",
+    port: 5432,
+});
+
+pool.connect()
+    .then(() => console.log("Connected to PostgreSQL"))
+    .catch(err => console.log(err));
