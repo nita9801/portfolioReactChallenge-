@@ -1,0 +1,14 @@
+# Ignore Windows system files and directories
+AppData/
+Application Data/
+Cookies/
+Documents/
+Local Settings/
+My Documents/
+NetHood/
+PrintHood/
+Recent/
+SendTo/
+Start Menu/
+Templates/
+.vscode/
