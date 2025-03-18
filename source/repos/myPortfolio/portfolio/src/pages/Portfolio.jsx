@@ -1,5 +1,6 @@
 import React from 'react';
-import Project from '../components/Project';
+import Project from '../../src/pages/Project';
+
 const Portfolio = () => {
   const projects = [
     {
@@ -11,11 +12,15 @@ const Portfolio = () => {
     // Add more projects here
   ];
   return (
-    <section>
+    <section className="portfolio">
       <h2>Portfolio</h2>
-      {projects.map((project, index) => (
-        <Project key={index} {...project} />
-      ))}
+      {projects.length > 0 ? (
+        projects.map((project) => (
+          <Project key={project.title} {...project} />
+        ))
+      ) : (
+        <p>No projects to display.</p>
+      )}
     </section>
   );
 };

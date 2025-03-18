@@ -1,25 +1,29 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import AboutMe from './pages/AboutMe';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
-import Resume from './pages/Resume';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from '@/Components/Header.jsx';
+import Footer from '@/Components/Footer.jsx';
+import Home from '@/pages/AboutMe.jsx';
+import Portfolio from '@/pages/Portfolio.jsx';
+import Contact from '@/pages/Contact.jsx';
+import Resume from '@/pages/Resume.jsx';
+
 const App = () => {
   return (
     <Router>
       <Header />
-      <main>
-        <Switch>
-          <Route exact path="/" component={AboutMe} />
-          <Route path="/portfolio" component={Portfolio} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/resume" component={Resume} />
-        </Switch>
+      <main className="main-content">
+      <Routes>
+          <Route path="/home" element={<Home />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/resume" element={<Resume />} />
+      </Routes>
       </main>
-      <Footer />
+      <div className="footer-container">
+        <Footer />
+      </div>
     </Router>
   );
 };
+
 export default App;
